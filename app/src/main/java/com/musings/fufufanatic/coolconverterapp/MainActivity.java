@@ -14,11 +14,11 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText enterValueET;
-    Spinner convertFromQualifierSpinner, convertToQualifierSpinner;
+    EditText valueEditText;
+    TextView resultValueTextView;
+    Spinner convertTypeQualifierSpinner, convertFromQualifierSpinner, convertToQualifierSpinner;
     Button convertButton;
-    TextView resultTextView;
-    SpinnerAdapter convertToSpinnerAdapter;
+    SpinnerAdapter convertFromSpinnerAdapter, convertToSpinnerAdapter;
 
     private void setupFromQualifierLister() {
 
@@ -40,21 +40,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        enterValueET = (EditText)findViewById(R.id.enterValueET);
+        valueEditText = (EditText)findViewById(R.id.valueEditText);
+        convertTypeQualifierSpinner = (Spinner)findViewById(R.id.convertTypeQualifierSpinner);
         convertFromQualifierSpinner = (Spinner)findViewById(R.id.convertFromQualifierSpinner);
         convertToQualifierSpinner = (Spinner)findViewById(R.id.convertToQualifierSpinner);
-        resultTextView = (TextView)findViewById(R.id.resultTextView);
+        resultValueTextView = (TextView)findViewById(R.id.resultValueTextView);
         convertButton = (Button)findViewById(R.id.convertButton);
-        resultTextView = (TextView)findViewById(R.id.resultTextView);
 
         setupFromQualifierLister();
     }
 
 
     private void generateConvertToSpinner(String qualifier){
-
-
 
     }
 
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // as you specify a parent activity in AndroidManifest.xml.3
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

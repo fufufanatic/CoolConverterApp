@@ -2,13 +2,29 @@
 
     <string name="app_name">CoolConverterApp</string>
 
-    <string name="enter_value_text_view">Enter a numeric value to convert</string>
-    <string name="current_qualifier_prompt">Select a Qualifier</string>
     <string name="action_settings">Settings</string>
-    <string name="result_edit_text">0.0</string>
+
+    <string name="type_text_view">Type</string>
+    <string name="current_qualifier_prompt">Select a Qualifier</string>
+
+    <string name="value_text_view">Value</string>
+    <string name="value_edit_text">Enter a numeric value to convert</string>
+
+    <string name="from_text_view">From</string>
+
+    <string name="to_text_view">To</string>
+
+    <string name="result_text_view">Result</string>
+    <string name="result_value_edit_text">0.0</string>
+
+    <string-array name="measurement_types">
+        <item>Weight</item>
+        <item>Distance</item>
+        <item>Temperature</item>
+    </string-array>
 
     <string-array name="measurement_entries">
-        <item>Lbs</item>
+        <item>Pounds(Lbs)</item>
         <item>Kilograms</item>
         <item>Ounces</item>
         <item>Milligrams</item>
