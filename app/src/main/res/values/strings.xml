@@ -17,12 +17,38 @@
     <string name="result_text_view">Result</string>
     <string name="result_value_edit_text">0.0</string>
 
+
     <string-array name="measurement_types">
+        <item>Select a Value</item>
+        <item>Temperature</item>
         <item>Weight</item>
         <item>Distance</item>
-        <item>Temperature</item>
     </string-array>
 
+    <string-array name="weightTypesArray">
+        <item>Select a Value</item>
+        <item>Pounds</item>
+        <item>Kilograms</item>
+        <item>Milligrams</item>
+        <item>Ounces</item>
+    </string-array>
+
+    <string-array name="distanceTypesArray">
+        <item>Select a Value</item>
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yards</item>
+    </string-array>
+
+    <string-array name="temperatureTypesArray">
+        <item>Select a Value</item>
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+
+
+    <!-- Commented out based on 9/25/15 discussion regarding a new category spinner
     <string-array name="measurement_entries">
         <item>Pounds(Lbs)</item>
         <item>Kilograms</item>
@@ -35,6 +61,13 @@
         <item>Celsius</item>
         <item>Fahrenheit</item>
         <item>Kelvin</item>
+    </string-array>
+    -->
+
+    <string-array name="qualifier_type">
+        <item>Weight</item>
+        <item>Distance</item>
+        <item>Temperature</item>
     </string-array>
 
 </resources>
