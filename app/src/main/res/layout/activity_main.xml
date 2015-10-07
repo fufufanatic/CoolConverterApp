@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="252dp"
         android:layout_height="wrap_content"
-        android:id="@+id/valueEditText"
+        android:id="@+id/inputValueEditText"
         android:layout_column="2"
         android:layout_weight="1"
         android:focusable="true"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/from_text_view"
-        android:id="@+id/textView"
+        android:id="@+id/fromTextView"
         android:layout_row="4"
         android:layout_column="1" />
 
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to_text_view"
-        android:id="@+id/textView3"
+        android:id="@+id/toTextView"
         android:layout_row="5"
         android:layout_column="1" />
 
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/result_text_view"
-        android:id="@+id/textView4"
+        android:id="@+id/resultTextView"
         android:layout_row="6"
         android:layout_column="1" />
 
