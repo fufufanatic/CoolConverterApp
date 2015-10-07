@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable s) {
 
+            updateResultValue();
         }
 
         @Override
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 inputValue = 0.0;
             }
 
-            updateResultValue();
+
 
         }
     };

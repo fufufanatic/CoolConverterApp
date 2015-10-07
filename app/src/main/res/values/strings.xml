@@ -8,7 +8,7 @@
     <string name="current_qualifier_prompt">Select a Qualifier</string>
 
     <string name="value_text_view">Value</string>
-    <string name="value_edit_text">Enter a numeric value to convert</string>
+    <string name="value_edit_text"></string>
 
     <string name="from_text_view">From</string>
 
