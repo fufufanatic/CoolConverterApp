@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     convertToQualifierSpinner.setAdapter(null);
                     // resultTextView.setText("3");
                 } else {
-
                     // resultTextView.setText("0.0");
                 }
             }
@@ -149,9 +148,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (NumberFormatException e) {
                 inputValue = 0.0;
             }
-
-
-
         }
     };
 
