@@ -1,5 +1,6 @@
 package com.musings.fufufanatic.coolconverterapp;
 
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         setupConvertTypeQualifierSpinner();
         setupConvertFromQualifierListener();
+        setupConvertButtonListener();
 
         inputValueEditText.addTextChangedListener(inputValueEditTextListener);
 
@@ -128,11 +130,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setupConvertButtonListener(){
+
+
+        convertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                updateResultValue();
+
+            }
+        });
+
+    }
+
     private TextWatcher inputValueEditTextListener = new TextWatcher() {
         @Override
         public void afterTextChanged(Editable s) {
 
-            updateResultValue();
+            //updateResultValue();
         }
 
         @Override
@@ -155,37 +171,99 @@ public class MainActivity extends AppCompatActivity {
 
         double result = 0.0;
 
-        if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Inches")){
-            if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")){
-                result = DistanceConversions.inchesToFeet(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")){
-                result = DistanceConversions.inchesToYards(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")){
-                result = DistanceConversions.inchesToCentimeters(inputValue);
+        if (convertTypeQualifierSpinner.getSelectedItem().equals("Distance")) {
+
+            if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Inches")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")) {
+                    result = DistanceConversions.inchesToFeet(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")) {
+                    result = DistanceConversions.inchesToYards(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")) {
+                    result = DistanceConversions.inchesToCentimeters(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Feet")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")) {
+                    result = DistanceConversions.feetToInches(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")) {
+                    result = DistanceConversions.feetToYards(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")) {
+                    result = DistanceConversions.feetToCentimeters(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Yards")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")) {
+                    result = DistanceConversions.yardsToInches(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")) {
+                    result = DistanceConversions.yardsToFeet(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")) {
+                    result = DistanceConversions.yardsToCentimeters(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Centimeters")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")) {
+                    result = DistanceConversions.centimetersToInches(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")) {
+                    result = DistanceConversions.centimetersToFeet(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")) {
+                    result = DistanceConversions.centimetersToYards(inputValue);
+                }
             }
-        } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Feet")){
-            if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")){
-                result = DistanceConversions.feetToInches(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")){
-                result = DistanceConversions.feetToYards(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")){
-                result = DistanceConversions.feetToCentimeters(inputValue);
+
+
+        } else if (convertTypeQualifierSpinner.getSelectedItem().equals("Weight")){
+
+            if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Pounds")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Ounces")) {
+                    result = WeightConversions.poundsToOunces(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Kilograms")) {
+                    result = WeightConversions.poundsToKilograms(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
+                    result = WeightConversions.poundsToMilligrams(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Ounces")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Kilograms")) {
+                    result = WeightConversions.ouncesToKilograms(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
+                    result = WeightConversions.ouncesToMilligrams(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {
+                    result = WeightConversions.ouncesToPounds(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Kilgorams")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
+                    result = DistanceConversions.yardsToInches(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {
+                    result = DistanceConversions.yardsToFeet(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Ounces")) {
+                    result = DistanceConversions.yardsToCentimeters(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {
+                    result = WeightConversions.milligramsToPounds(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Ounces")) {
+                    result = WeightConversions.milligramsToOunces(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Kilograms")) {
+                    result =WeightConversions.milligramsToKilogram(inputValue);
+                }
             }
-        } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Yards")){
-            if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")){
-                result = DistanceConversions.yardsToInches(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")){
-                result = DistanceConversions.yardsToFeet(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Centimeters")){
-                result = DistanceConversions.yardsToCentimeters(inputValue);
-            }
-        } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Centimeters")){
-            if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Inches")){
-                result = DistanceConversions.centimetersToInches(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Feet")){
-                result = DistanceConversions.centimetersToFeet(inputValue);
-            } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Yards")){
-                result = DistanceConversions.centimetersToYards(inputValue);
+
+        } else if (convertTypeQualifierSpinner.getSelectedItem().equals("Temperature")) {
+
+            if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Celsius")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Fahrenheit")) {
+                    result = TemperatureConversions.celsiusToFahrenheit(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Kelvin")) {
+                    result = TemperatureConversions.celsiusToKelvin(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Fahrenheit")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Kelvin")) {
+                    result = TemperatureConversions.fahrenheitToKelvin(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Celsius")) {
+                    result = TemperatureConversions.fahrenheitToCelsius(inputValue);
+                }
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Kelvin")) {
+                if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Celsius")) {
+                    result = TemperatureConversions.kelvinToCelsius(inputValue);
+                } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Fahrenheit")) {
+                    result = TemperatureConversions.kelvinToFahrenheit(inputValue);
+                }
             }
         }
 
