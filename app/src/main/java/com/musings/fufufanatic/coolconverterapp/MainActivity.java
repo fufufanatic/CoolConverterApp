@@ -147,8 +147,7 @@ public class MainActivity extends AppCompatActivity {
     private TextWatcher inputValueEditTextListener = new TextWatcher() {
         @Override
         public void afterTextChanged(Editable s) {
-
-            //updateResultValue();
+            updateResultValue();
         }
 
         @Override
@@ -226,13 +225,13 @@ public class MainActivity extends AppCompatActivity {
                 } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {
                     result = WeightConversions.ouncesToPounds(inputValue);
                 }
-            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Kilgorams")) {
+            } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Kilograms")) {
                 if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
-                    result = DistanceConversions.yardsToInches(inputValue);
+                    result = WeightConversions.kilogramsToMilligrams(inputValue);
                 } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {
-                    result = DistanceConversions.yardsToFeet(inputValue);
+                    result = WeightConversions.kilogramsToPounds(inputValue);
                 } else if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Ounces")) {
-                    result = DistanceConversions.yardsToCentimeters(inputValue);
+                    result = WeightConversions.kilogramsToOunces(inputValue);
                 }
             } else if (String.valueOf(convertFromQualifierSpinner.getSelectedItem()).equals("Milligrams")) {
                 if (String.valueOf(convertToQualifierSpinner.getSelectedItem()).equals("Pounds")) {

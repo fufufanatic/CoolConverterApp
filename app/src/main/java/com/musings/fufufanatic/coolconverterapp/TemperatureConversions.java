@@ -15,7 +15,7 @@ public class TemperatureConversions {
     }
 
     public static double fahrenheitToCelsius(double inputValue){
-        double result = (inputValue - 32) * (5/9);
+        double result = (inputValue - 32.0) * (5.0/9.0);
         return result;
     }
 
