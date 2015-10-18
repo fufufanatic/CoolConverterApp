@@ -25,7 +25,8 @@
         android:layout_column="2"
         android:layout_weight="1"
         android:entries="@array/measurement_types"
-        android:layout_row="1" />
+        android:layout_row="1"
+        android:background="#C0C0C0"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
         android:id="@+id/convertFromQualifierSpinner"
         android:layout_column="2"
         android:layout_weight="1"
-        android:layout_row="4" />
+        android:layout_row="4"
+        android:background="#808080"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,7 +80,8 @@
         android:id="@+id/convertToQualifierSpinner"
         android:layout_column="2"
         android:layout_weight="1"
-        android:layout_row="5" />
+        android:layout_row="5"
+        android:background="#C0C0C0"/>
 
 
     <TextView
