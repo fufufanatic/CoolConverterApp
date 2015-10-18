@@ -91,7 +91,7 @@
 
     <TextView
         android:layout_width="290dp"
-        android:layout_height="170dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/result_value_edit_text"
         android:id="@+id/resultValueTextView"
@@ -101,11 +101,13 @@
         android:layout_column="2" />
 
     <Button
-        android:layout_width="288dp"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
         android:text="Convert!"
         android:id="@+id/convertButton"
         android:layout_column="2"
-        android:layout_row="8" />
+        android:layout_row="8"
+        android:background="#ADD8E6"
+        android:paddingRight="50dp" />
 
 </GridLayout>
