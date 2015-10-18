@@ -63,23 +63,21 @@ public class MainActivity extends AppCompatActivity {
                     temperatureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(temperatureAdapter);
                     convertToQualifierSpinner.setAdapter(null);
-                    //resultTextView.setText("1");
+                    resultValueTextView.setText("0.0");
 
                 } else if (parent.getSelectedItem().equals("Weight")) {
 
                     weightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(weightAdapter);
                     convertToQualifierSpinner.setAdapter(null);
-                    // resultTextView.setText("2");
+                    resultValueTextView.setText("0.0");
 
                 } else if (parent.getSelectedItem().equals("Distance")) {
 
                     distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(distanceAdapter);
                     convertToQualifierSpinner.setAdapter(null);
-                    // resultTextView.setText("3");
-                } else {
-                    // resultTextView.setText("0.0");
+                    resultValueTextView.setText("0.0");
                 }
             }
 
@@ -138,10 +136,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 updateResultValue();
-
             }
         });
-
     }
 
     private TextWatcher inputValueEditTextListener = new TextWatcher() {
@@ -152,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
