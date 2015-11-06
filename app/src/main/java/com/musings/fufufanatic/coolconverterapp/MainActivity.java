@@ -1,6 +1,5 @@
 package com.musings.fufufanatic.coolconverterapp;
 
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -24,14 +22,12 @@ public class MainActivity extends AppCompatActivity {
     Spinner convertTypeQualifierSpinner, convertFromQualifierSpinner,convertToQualifierSpinner;
     Button convertButton;
     TextView resultValueTextView;
-    SpinnerAdapter convertFromQualifierSpinnerAdapter, convertToQualifierSpinnerAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         inputValueEditText = (EditText)findViewById(R.id.inputValueEditText);
         convertTypeQualifierSpinner = (Spinner)findViewById(R.id.convertTypeQualifierSpinner);
@@ -41,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         convertButton = (Button)findViewById(R.id.convertButton);
 
         setupConvertTypeQualifierSpinner();
-        setupConvertFromQualifierListener();
         setupConvertButtonListener();
 
         inputValueEditText.addTextChangedListener(inputValueEditTextListener);
@@ -62,22 +57,20 @@ public class MainActivity extends AppCompatActivity {
 
                     temperatureAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(temperatureAdapter);
-                    convertToQualifierSpinner.setAdapter(null);
-                    resultValueTextView.setText("0.0");
+                    convertToQualifierSpinner.setAdapter(temperatureAdapter);
 
                 } else if (parent.getSelectedItem().equals("Weight")) {
 
                     weightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(weightAdapter);
-                    convertToQualifierSpinner.setAdapter(null);
-                    resultValueTextView.setText("0.0");
+                    convertToQualifierSpinner.setAdapter(weightAdapter);
 
-                } else if (parent.getSelectedItem().equals("Distance")) {
+                } else {
 
                     distanceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     convertFromQualifierSpinner.setAdapter(distanceAdapter);
-                    convertToQualifierSpinner.setAdapter(null);
-                    resultValueTextView.setText("0.0");
+                    convertToQualifierSpinner.setAdapter(distanceAdapter);
+
                 }
             }
 
@@ -88,48 +81,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupConvertFromQualifierListener() {
-
-        final ArrayAdapter<CharSequence> weightAdapter =  ArrayAdapter.createFromResource(this,R.array.weightTypesArray,android.R.layout.simple_spinner_item);
-        final ArrayAdapter<CharSequence> distanceAdapter = ArrayAdapter.createFromResource(this,R.array.distanceTypesArray,android.R.layout.simple_spinner_item);
-        final ArrayAdapter<CharSequence> temperatureAdapter = ArrayAdapter.createFromResource(this,R.array.temperatureTypesArray,android.R.layout.simple_spinner_item);
-
-        convertFromQualifierSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            if (parent.getSelectedItem().equals("Celsius") ||
-               (parent.getSelectedItem().equals("Fahrenheit")) ||
-               (parent.getSelectedItem().equals("Kelvin")) ){
-
-                convertToQualifierSpinner.setAdapter(temperatureAdapter);
-
-            } else if (parent.getSelectedItem().equals("Pounds") ||
-                      parent.getSelectedItem().equals("Ounces") ||
-                      parent.getSelectedItem().equals("Kilograms")||
-                      parent.getSelectedItem().equals("Milligrams")){
-
-                convertToQualifierSpinner.setAdapter(weightAdapter);
-
-            } else if (parent.getSelectedItem().equals("Inches")||
-                       parent.getSelectedItem().equals("Feet")||
-                       parent.getSelectedItem().equals("Yards")){
-
-                convertToQualifierSpinner.setAdapter(distanceAdapter);
-            } else {
-
-            }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-
     private void setupConvertButtonListener(){
-
 
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
