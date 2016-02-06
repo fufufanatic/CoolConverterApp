@@ -22,7 +22,7 @@
         android:text="@string/result_value_text_view"
         android:id="@+id/resultValueTextView"
         android:textSize="75dp"
-        android:textColor="#FF0000"
+        android:textColor="#080808"
         android:layout_gravity="center"/>
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:layout_weight="1"
             android:entries="@array/measurement_types"
             android:layout_row="1"
-            android:background="#C0C0C0" />
+            android:background="#cc4e5d" />
 
     </LinearLayout>
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/convertFromQualifierSpinner"
             android:layout_weight="1"
-            android:background="#808080"/>
+            android:background="#00d9ff" />
 
     </LinearLayout>
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/convertToQualifierSpinner"
             android:layout_weight="1"
-            android:background="#C0C0C0"/>
+            android:background="#f16b3e"/>
 
     </LinearLayout>
 
@@ -120,6 +120,6 @@
         android:text="@string/convert_button_text_view"
         android:textColor="#FFFFFF"
         android:id="@+id/convertButton"
-        android:background="#000000"/>
+        android:background="#000000" />
 
 </LinearLayout>
