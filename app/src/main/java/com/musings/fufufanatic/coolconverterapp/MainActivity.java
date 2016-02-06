@@ -17,11 +17,10 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private double inputValue;
-
-    EditText inputValueEditText;
-    Spinner convertTypeQualifierSpinner, convertFromQualifierSpinner,convertToQualifierSpinner;
-    Button convertButton;
-    TextView resultValueTextView;
+    private EditText inputValueEditText;
+    private Spinner convertTypeQualifierSpinner, convertFromQualifierSpinner,convertToQualifierSpinner;
+    private Button convertButton;
+    private TextView resultValueTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,27 @@ public class MainActivity extends AppCompatActivity {
         setupConvertTypeQualifierSpinner();
         setupConvertButtonListener();
 
-        inputValueEditText.addTextChangedListener(inputValueEditTextListener);
+        inputValueEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    // Change the inputValue to the new input
+                    inputValue = Double.parseDouble(s.toString());
+                } catch (NumberFormatException e) {
+                    inputValue = 0.0;
+                }
+            }
+        });
 
     }
 
@@ -86,32 +105,10 @@ public class MainActivity extends AppCompatActivity {
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 updateResultValue();
             }
         });
     }
-
-    private TextWatcher inputValueEditTextListener = new TextWatcher() {
-        @Override
-        public void afterTextChanged(Editable s) {
-            updateResultValue();
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            try {
-                // Change the inputValue to the new input
-                inputValue = Double.parseDouble(s.toString());
-            } catch (NumberFormatException e) {
-                inputValue = 0.0;
-            }
-        }
-    };
 
     private void updateResultValue(){
 
